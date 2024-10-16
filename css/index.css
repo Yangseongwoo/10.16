@@ -333,6 +333,14 @@ body {
     padding-bottom: 20%;
 }
 
+.section1_title{
+    font-size: 100px;
+    font-family: "Merriweather", serif;
+    font-weight: 300;
+    padding-bottom: 5%;
+    padding-left: 35px;
+}
+
 .project_card {
     display: flex; /* 내부 요소를 flexbox로 설정 */
     flex-direction: column; /* 세로 방향으로 배치 */
@@ -419,6 +427,14 @@ body {
     padding-bottom: 20%;
 }
 
+
+.section2_title{
+    font-size: 100px;
+    font-family: "Merriweather", serif;
+    font-weight: 300;
+    padding-bottom: 5%;
+}
+
 .archives-header {
     max-width: 1850px;
     display: flex; /* 가로로 정렬 */
@@ -489,6 +505,23 @@ body {
 }
 
 
+#cursor-image {
+    display: none; /* 기본적으로 숨김 */
+    position: absolute; /* 화면의 특정 위치에 나타나도록 설정 */
+    width: 700px; /* 이미지 크기 조정 (예: 70px) */
+    height: auto; /* 비율 유지 */
+    pointer-events: none; /* 이미지에 마우스 이벤트를 차단 */
+    transition: transform 0.2s ease; /* 부드러운 변환 효과 */
+}
+
+.archives-content:hover #cursor-image {
+    transform: translate(-50%, -50%) scale(5.2); /* 이미지 중앙 정렬 및 크기 증가 */
+}
+
+
+.archives-content:hover {
+    cursor: url('image/cursor-plus.png'), auto; /* 커서 이미지 경로로 변경 */
+}
 
 
 /* about 섹션 */
