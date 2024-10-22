@@ -18,3 +18,52 @@ function projectHideDescription(imgElement) {
     }, 300); // 애니메이션 시간과 동일하게 설정
 }
 
+
+/*  */
+const section_2 = document.getElementById("horizontal");
+const box_items = gsap.utils.toArray(".horizontal__item");
+
+// 미디어 쿼리 설정
+const mediaQuery = window.matchMedia("(max-width: 768px)");
+
+function handleScrollAnimation() {
+    if (!mediaQuery.matches) { // 화면 크기가 768px 초과일 때만 작동
+        gsap.to(box_items, {
+            xPercent: -50 * (box_items.length - 1),
+            ease: "sine.out",
+            scrollTrigger: {
+                trigger: section_2,
+                pin: true,
+                scrub: 3,
+                snap: 1 / (box_items.length - 1),
+                end: "+=" + (section_2.offsetWidth * 0.8)
+            }
+        });
+    } else {
+        // 작은 화면에서는 애니메이션 비활성화
+        gsap.killTweensOf(box_items);
+        
+        // 스크롤 트리거 제거
+        ScrollTrigger.getAll().forEach(trigger => {
+            trigger.kill(); // 모든 ScrollTrigger 비활성화
+        });
+
+        // 세로 방향으로 나열
+        section_2.style.display = 'block'; // 블록 요소로 설정
+        section_2.style.overflow = 'visible'; // 세로 스크롤 비활성화
+    }
+}
+
+// 초기 호출
+handleScrollAnimation();
+
+// 리사이즈 이벤트 리스너 추가
+mediaQuery.addEventListener("change", handleScrollAnimation);
+
+
+
+
+
+
+
+

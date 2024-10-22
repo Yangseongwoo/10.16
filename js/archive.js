@@ -21,27 +21,30 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
+
 /* archive */
 document.querySelectorAll('.archives-content').forEach((item) => {
     const projectImage = item.querySelector('.project-image');
     const imageDisplay = item.nextElementSibling; // 다음 형제 요소인 image-display
     const cursorImage = document.getElementById('cursor-image'); // 커서 이미지 요소
 
+    // 이미지의 고정 오프셋 값
+    const offsetX = 10; // 커서 오른쪽으로 고정할 거리
+    const offsetY = -300; // 커서 위쪽으로 고정할 거리
+
     item.addEventListener('mousemove', (event) => {
         if (!imageDisplay.classList.contains('show')) { // 열린 상태가 아닐 때만
-            // 커서 위치 계산
-            const x = event.clientX;
-            const y = event.clientY;
+            const x = event.clientX + offsetX; // 커서의 X 위치에 오프셋 추가
+            const y = event.clientY + offsetY; // 커서의 Y 위치에 오프셋 추가
 
             // 커서 이미지 위치 업데이트
-            cursorImage.style.left = `${x}px`;
-            cursorImage.style.top = `${y}px`;
+            cursorImage.style.left = `${event.clientX}px`;
+            cursorImage.style.top = `${event.clientY}px`;
 
-            // 작품 이미지 위치 업데이트
-            projectImage.style.left = `${x + 10}px`; // 커서 오른쪽으로 10px 이동
-            projectImage.style.top = `${y - 300}px`; 
+            // 프로젝트 이미지 위치 업데이트
+            projectImage.style.left = `${x}px`; // 고정된 X 위치
+            projectImage.style.top = `${y}px`; // 고정된 Y 위치
             projectImage.style.opacity = 1; // 불투명하게 설정
-            /* projectImage.style.transform = 'translateY(-10px)'; */ // 조금 떠다니는 효과 추가
         }
     });
 
@@ -122,6 +125,7 @@ document.querySelectorAll('.archives-content').forEach((item) => {
         }
     });
 });
+
 
 
 

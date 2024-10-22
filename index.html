@@ -5,8 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/index2.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/index2.js"></script>
+    
 </head>
 <body>
+
     <div class="container">
         <div class="header">
             <div class="scroll-text" onmousemove="showImage(event)" onmouseleave="hideImage()">
@@ -21,13 +31,14 @@
             </div>
         </div>
         </div>
+
         <div class="navbar">
             <a href="#home" class="nav-item">Home</a>
             <a href="#select-project" class="nav-item">Select project</a>
             <a href="#archives" class="nav-item">Archives</a>
             <a href="#about" class="nav-item">About</a>
             <a href="#coming-soon" class="nav-item">Coming soon</a>
-            <div class="nav-item" id="toggle-nav">Menu +</div>
+            <div class="nav-item2" id="toggle-nav">Menu +</div> <!-- 추가된 부분 -->
         </div>
         <div class="nav-links">
             <a href="#home" class="nav-item">Home</a>
@@ -36,6 +47,8 @@
             <a href="#about" class="nav-item">About</a>
             <a href="#coming-soon" class="nav-item">Coming soon</a>
         </div>
+        
+
         
         
     
@@ -52,10 +65,10 @@
 
       <!-- 대표 작품 섹션 -->
 
-      <div class="mockupcontainer">
+      <div data-aos="fade-up" class="mockupcontainer">
         <h2>FIND <br> PERSONAL <br> APP</h2>
         <div class="mockup">
-            <img src="image/ui_ux.jpg" alt="" onmouseover="bestshowDescription()" onmouseout="besthideDescription()">
+            <img src="image/ui_ux.jpg" alt="" onclick="window.location.href='uiux.html'" onmouseover="bestshowDescription()" onmouseout="besthideDescription()">
             <div class="mockup_text">
                 <h1>McDonald's - ui/ux</h1>
                 <p>2024</p>
@@ -72,57 +85,71 @@
 
     <!-- project 섹션 -->
 
-    <div class="section1_title">Projects</div>
 
-    <div class="project_container">
-        <div class="project_card">
-            <img src="image/website1.jpg" alt="Project 1" onmouseover="projectShowDescription(this)" onmouseout="projectHideDescription(this)">
-            <div class="project_info">
-                <h2>Giant- website</h2>
-                <p>2024</p>
-                <button class="infobtn">Info</button>
+
+    <div class="section1_title" id="select-project"></div>
+<!--     <section id="horizontal"> -->
+        <h2 class="project_title">Projects</h2>
+        <div class="project_container" id="horizontal">
+            <div class="horizontal__item">
+                <div class="project_card">
+                    <img src="image/website1.jpg" onclick="window.location.href='giant.html'" alt="Project 1" onmouseover="projectShowDescription(this)" onmouseout="projectHideDescription(this)">
+                    <div class="project_info">
+                        <h2>Giant- website</h2>
+                        <p>2024</p>
+                        <button class="infobtn">Info</button>
+                    </div>
+                    <div class="project_description" style="display: none;">
+                        <p>This is a brief description of Project 1.</p>
+                    </div>
+                </div>
             </div>
-            <div class="project_description" style="display: none;">
-                <p>This is a brief description of Project 1.</p>
+            
+            <div class="horizontal__item">
+                <div class="project_card">
+                    <img src="image/website2.png" onclick="window.location.href='osteria.html'" alt="Project 2" onmouseover="showDescription(this)" onmouseout="hideDescription(this)">
+                    <div class="project_info">
+                        <h2>Giant- website</h2>
+                        <p>2024</p>
+                        <button>Info</button>
+                    </div>
+                    <div class="project_description" style="display: none;">
+                        <p>This is a brief description of Project 2.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="horizontal__item">
+                <div class="project_card">
+                    <img src="image/website1.jpg" onclick="window.location.href='ohui.html'" alt="Project 3" onmouseover="projectshowDescription(this)" onmouseout="projecthideDescription(this)">
+                    <div class="project_info">
+                        <h2>Giant- website</h2>
+                        <p>2024</p>
+                        <button>Info</button>
+                    </div>
+                    <div class="project_description" style="display: none;">
+                        <p>This is a brief description of Project 3.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="horizontal__item">
+                <div class="project_card">
+                    <img src="image/website1.jpg" alt="Project 4" onmouseover="showDescription(this)" onmouseout="hideDescription(this)">
+                    <div class="project_info">
+                        <h2>Giant- website</h2>
+                        <p>2024</p>
+                        <button>Info</button>
+                    </div>
+                    <div class="project_description" style="display: none;">
+                        <p>This is a brief description of Project 4.</p>
+                    </div>
+                </div>
             </div>
         </div>
-    
-        <div class="project_card">
-            <img src="image/website2.png" alt="Project 2" onmouseover="showDescription(this)" onmouseout="hideDescription(this)">
-            <div class="project_info">
-                <h2>Giant- website</h2>
-                <p>2024</p>
-                <button>Info</button>
-            </div>
-            <div class="project_description" style="display: none;">
-                <p>This is a brief description of Project 2.</p>
-            </div>
-        </div>
-    
-        <div class="project_card">
-            <img src="image/website1.jpg" alt="Project 3" onmouseover="projectshowDescription(this)" onmouseout="projecthideDescription(this)">
-            <div class="project_info">
-                <h2>Giant- website</h2>
-                <p>2024</p>
-                <button>Info</button>
-            </div>
-            <div class="project_description" style="display: none;">
-                <p>This is a brief description of Project 3.</p>
-            </div>
-        </div>
-    
-        <div class="project_card">
-            <img src="image/website1.jpg" alt="Project 4" onmouseover="showDescription(this)" onmouseout="hideDescription(this)">
-            <div class="project_info">
-                <h2>Giant- website</h2>
-                <p>2024</p>
-                <button>Info</button>
-            </div>
-            <div class="project_description" style="display: none;">
-                <p>This is a brief description of Project 4.</p>
-            </div>
-        </div>
-    </div>
+        
+<!--     </section> -->
+
     
     
 
@@ -130,7 +157,7 @@
 
     <!-- archives 섹션 -->
 
-    <div class="archives">
+    <div id="archives" class="archives">
         <div class="section2_title">Archives</div>
         <div class="archives-header">
             <h2 class="title">PROJECTS</h2>
@@ -186,7 +213,7 @@
 
     
     <!-- about 섹션 -->
-    <div class="about_container">
+    <div id="about" class="about_container">
         <h2 class="abouttitle">Hi I'm <br> YANG SEONG <br> WOO</h2>
         <img class="profileimg" src="image/profileimg.jpg" alt="">
     </div>
@@ -275,8 +302,8 @@
         <div class="footer">
             <p>© All rights reserved</p>
             <div class="footer-right">
-                <p>Designed by sw</p>
                 <p>Developed by sw</p>
+                <p id="current-time"></p>
             </div>
         </div>
     </div>
@@ -288,5 +315,45 @@
     <script src="js/scrolltext.js"></script>
     <script src="js/bestproject.js"></script>
     <script src="js/project.js"></script>
+    <script src="js/nav.js"></script>
+
+    <!-- 부드러운 스크롤 플러그인 -->
+    <script>
+        // Initialize Lenis
+    const lenis = new Lenis();
+    
+    // Listen for the scroll event and log the event data
+    lenis.on('scroll', (e) => {
+      console.log(e);
+    });
+    
+    // Use requestAnimationFrame to continuously update the scroll
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    
+    requestAnimationFrame(raf);
+    
+    </script>
+
+<script>
+    // 현재 시간을 업데이트하는 함수
+    function updateTime() {
+        const now = moment().format('MMMM Do YYYY, h:mm:ss a');
+        document.getElementById('current-time').innerText = now;
+    }
+
+    // 처음 로드할 때 시간 업데이트
+    updateTime();
+
+    // 1초마다 시간 업데이트
+    setInterval(updateTime, 1000);
+</script>
+
+<script>
+    AOS.init();
+  </script>
+  
 </body>
 </html>
